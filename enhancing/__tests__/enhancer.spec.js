@@ -3,8 +3,12 @@ const {succeed, fail, repair, get} = require('../enhancer.js');
 // test away!
 describe("enhancer", () => {
   it('should repair something', () => {
-    const item = {foo: 'bar'};
-    const repairedItem = {...item};
+    const item = {
+      name: 'foo', 
+      enhancement: 1, 
+      durability: 50
+    };
+    const repairedItem = {...item, durability: 100};
     expect(repair(item)).toEqual(repairedItem);
   });
 
