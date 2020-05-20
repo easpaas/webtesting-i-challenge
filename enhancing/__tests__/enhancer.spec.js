@@ -1,10 +1,14 @@
-const enhancer = require('../enhancer.js');
+const {succeed, fail, repair, get} = require('../enhancer.js');
+
 // test away!
 describe("enhancer", () => {
-  it('should succeed', () =>{
-
+  it('should repair something', () => {
+    const item = {foo: 'bar'};
+    const repairedItem = {...item};
+    expect(repair(item)).toEqual(repairedItem);
   });
-  it.todo('should fail');
-  it.todo('should repair something');
-  it.todo('should get something');
+
+  // it.todo('should succeed');
+  // it.todo('should fail');
+  // it.todo('should get something');
 })
