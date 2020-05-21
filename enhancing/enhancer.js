@@ -13,14 +13,27 @@ const item = {
 
 
 function succeed(item) {
-  // - If the item enhancement level is 20, the enhancement level is not changed.
-  // - The durability of the item is not changed.
-  item.enhancement += 1;
-
-  return {...item};
+  item.enhancement === 20 ?
+    {...item}
+  :
+    item.enhancement += 1;
+    return {...item}
 }
 
 function fail(item) {
+  switch(item.enhancement) {
+    case item.enhancement < 15:
+      item.durability -= 5;
+      break;
+    case item.enhancement >= 15:
+      item.durability -= 10;
+      break;
+    case item.enhancement > 16:
+      item.enhancement -= 1;
+      break;
+    default:
+      return { ...item };
+  }
   return { ...item };
 }
 
